@@ -39,4 +39,8 @@ public assigneEtudToDepart(idEtud:number,idDep:number):Observable<Etudiants>{
   return this.http.put<Etudiants>(`${this.apiServerUrl}/etudiants/asign/${idEtud}/${idDep}`,null);
 
 }
+public addAndAsignEtudiantToEquipeAndContract(etudiant:Etudiants,idcont:number,ideq:number):Observable<Etudiants>{
+  return this.http.post<Etudiants>(`${this.apiServerUrl}/etudiants/addAndAsing/${idcont}/${ideq}`,etudiant);
+}
+
 }

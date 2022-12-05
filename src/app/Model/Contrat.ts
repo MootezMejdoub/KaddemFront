@@ -1,9 +1,9 @@
-export interface Contrat{
-    idcont:number,
-    archive:number,
-    dateDebutContrat:String,
-    dateFinContrat:String,
-    
+export class Contrat{
+  idContrat:number;
+    archive:number;
+    dateDebutContrat:String;
+    dateFinContrat:String;
+
 
 
 }

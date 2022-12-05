@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { EtudiantsService } from './pages/tables/etudiants.service';
 import { CommonModule } from '@angular/common';
+import { AddStudentComponent } from './pages/add-student/add-student.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { CommonModule } from '@angular/common';
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent
+
   ],
   providers: [EtudiantsService],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
-export interface Equipe{
-    idEquipe:number,
-    nomEquipe:String,
-    
+export class Equipe{
+    idEquipe:number;
+    nomEquipe:String;
+
 }
