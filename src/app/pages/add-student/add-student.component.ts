@@ -32,7 +32,7 @@ export class AddStudentComponent implements OnInit {
      this.list.push(this.user);
      console.log(this.list);
      this.user=new User();*/
-     this.etudiantService.addAndAsignEtudiantToEquipeAndContract(this.user,this.contrat.idContrat,this.equipe.idEquipe).subscribe();
+    // this.etudiantService.addAndAsignEtudiantToEquipeAndContract(this.user,this.contrat.idContrat,this.equipe.idEquipe).subscribe();
 
      console.log(f.firstInfo.nomE);
      //this.notified.emit(this.user);
@@ -66,4 +66,20 @@ public getEqui():void{
     }
   );
 }
+e(){
+
+  let button =  document.getElementById('order');
+
+  if (!button.classList.contains( "animate")) {
+      button.classList.add("animate");
+      setTimeout(() => {
+          button.classList.remove("animate");
+          this.user=new Etudiants();
+      this.equipe=new Equipe();
+      this.contrat=new Contrat();
+
+      }, 10000);
+
+  }
+};
 }

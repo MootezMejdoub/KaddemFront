@@ -184,15 +184,39 @@ $(".order").click(function (e) {
 
             <div style="  display: flex;
             justify-content: center;margin-top: -1%;">
-             <div *ngIf="f.valid" > <button [disabled]="f.invalid"  type="submit"   class="btn-slide" href="#" >
+
+             <div *ngIf="f.valid" >
+              <button [disabled]="f.invalid"  type="submit"  (click)="e()" id="order" class="order"><span class="default">ADD Student</span><span class="success">Student Added!
+                <svg viewbox="0 0 12 10">
+                  <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                </svg></span>
+              <div class="box"></div>
+              <div class="truck">
+                <div class="back"></div>
+                <div class="front">
+                  <div class="window"></div>
+                </div>
+                <div class="light top"></div>
+                <div class="light bottom"></div>
+              </div>
+              <div class="lines"></div>
+              </button><!-- dribbble -->
+            </div></div>
+ </div></div>
+
+
+
+<!--<button [disabled]="f.invalid"  type="submit"   class="btn-slide" href="#" >
               <span class="circle">
                 <i class="ni ni-user-run "></i>
               </span>
 
               <span class="title" style="margin-top: -8%;">Save Student</span>
               <span class="title title-hover" style="margin-top: -8%;">Student Added</span>
-            </button> </div></div>
- </div></div>
+            </button>-->
+
+
+
           </form>
         </div>
       </div>
