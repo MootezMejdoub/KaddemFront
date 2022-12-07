@@ -18,6 +18,11 @@ export class TablesComponent implements OnInit {
   nbse:number=0;
   nbnids:number=0;
   nbtotal:number=0;
+  public focus;
+  searchT:string='';
+  searchedEtudiants:Etudiants[];
+  totalRecords:any;
+  page:number;
   constructor(private etudiantService:EtudiantsService) { }
 
   public getEtudiants():void{
@@ -26,6 +31,8 @@ export class TablesComponent implements OnInit {
         this.etudiants = response;
         console.log(this.etudiants);
         this.nbrOption();
+        this.totalRecords= this.etudiants.length;
+        console.log(this.totalRecords);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -108,6 +115,13 @@ export class TablesComponent implements OnInit {
 
     ngOnInit(): void {
      this.getEtudiants();
+
+    }
+
+    onsearch(searchValue:string){
+
+      this.searchT = searchValue;
+      console.log(searchValue);
 
     }
 

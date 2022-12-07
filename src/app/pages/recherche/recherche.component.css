@@ -1,0 +1,38 @@
+body {
+  background: #aa00ff;
+  height: 100vh;
+  display: flex;
+}
+
+.container {
+
+  background:transparent ;
+  height: 60px;
+  width: 300px;
+  border-radius: 30px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.8s;
+
+}
+.container:hover .input  {
+  width: 250px;
+}
+.container .input {
+  background: transparent;
+  border: #FF6347;
+  outline: none;
+  width: 0px;
+  font-weight: 500;
+  font-size: 18px;
+  transition: 0.8s;
+  color:#FF6347
+}
+
+.container .btn .fas {
+  color: #FF6347;
+  font-size: 19px;
+}
+

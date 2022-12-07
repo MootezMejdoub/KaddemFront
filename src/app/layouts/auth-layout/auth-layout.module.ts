@@ -17,6 +17,6 @@ import { RegisterComponent } from '../../pages/register/register.component';
   declarations: [
     LoginComponent,
     RegisterComponent
-  ]
+  ],
 })
 export class AuthLayoutModule { }

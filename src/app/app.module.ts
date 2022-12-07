@@ -1,6 +1,6 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -14,7 +14,9 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { EtudiantsService } from './pages/tables/etudiants.service';
 import { CommonModule } from '@angular/common';
-import { AddStudentComponent } from './pages/add-student/add-student.component';
+
+
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -27,14 +29,14 @@ import { AddStudentComponent } from './pages/add-student/add-student.component';
     RouterModule,
     AppRoutingModule,
     CommonModule,
-
-
-    ReactiveFormsModule
+NgxPaginationModule,
+ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+
 
   ],
   providers: [EtudiantsService],

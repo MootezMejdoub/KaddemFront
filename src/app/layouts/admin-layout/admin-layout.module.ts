@@ -13,6 +13,8 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddStudentComponent } from 'src/app/pages/add-student/add-student.component';
+import { RechercheComponent } from 'src/app/pages/recherche/recherche.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -24,7 +26,7 @@ import { AddStudentComponent } from 'src/app/pages/add-student/add-student.compo
     NgbModule,
     ClipboardModule,
     CommonModule,
-
+    NgxPaginationModule,
     FormsModule,
     ReactiveFormsModule
   ],
@@ -34,7 +36,9 @@ import { AddStudentComponent } from 'src/app/pages/add-student/add-student.compo
     TablesComponent,
     IconsComponent,
     MapsComponent,
-    AddStudentComponent
+    AddStudentComponent,
+    RechercheComponent
+
   ]
 })
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Output, EventEmitter } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
@@ -11,7 +11,12 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
-  public location: Location;
+  public location: Location;    searchString:string;
+
+  @Output()
+  search : EventEmitter<string> = new EventEmitter<string>();
+
+
   constructor(location: Location,  private element: ElementRef, private router: Router) {
     this.location = location;
   }
@@ -31,6 +36,9 @@ export class NavbarComponent implements OnInit {
         }
     }
     return 'Dashboard';
+  }
+  onSearch(){
+    this.search.emit(this.searchString)
   }
 
 }
