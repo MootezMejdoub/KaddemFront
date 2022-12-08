@@ -6,13 +6,13 @@ export class Etudiants{
 
 
      idEtudiant:number;
-      nomE:String;
+        nomE:String;
 
        prenomE:String;
-       deptt:Departement;
-       cont:Contrat;
+       departement:Departement;
+       listContrat:Contrat;
        option:any;
-       equipe:Equipe;
+       listEquipes:Equipe;
 
 
 }

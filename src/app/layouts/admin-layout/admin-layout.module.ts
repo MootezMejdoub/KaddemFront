@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddStudentComponent } from 'src/app/pages/add-student/add-student.component';
 import { RechercheComponent } from 'src/app/pages/recherche/recherche.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { OptionStatsComponent } from 'src/app/pages/option-stats/option-stats.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -37,7 +38,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     IconsComponent,
     MapsComponent,
     AddStudentComponent,
-    RechercheComponent
+    RechercheComponent,
+    OptionStatsComponent
 
   ]
 })

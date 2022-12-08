@@ -1,101 +1,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
-  <div class="container-fluid">
-    <div class="header-body">
-      <!-- Card stats -->
-      <div  class="row">
-        <div class="col-xl-3 col-lg-6">
-          <div class="card card-stats mb-4 mb-xl-0">
-            <div class="card-body">
-              <div class="row" >
-                <div   class="col">
-                  <h5   class="card-title text-uppercase text-muted mb-0">GAMIX </h5>
-                  <span [ngStyle]=" this.nbgamix<2 ?{'color':'red','font-style':'italic'} :{'color':'green'}" class="h2 font-weight-bold mb-0">{{this.nbgamix}}</span>
-                </div>
-                <div class="col-auto">
-                  <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                    <i class="ni ni-controller"></i>
-                  </div>
-                </div>
-              </div>
-              <p class="mt-3 mb-0 text-muted text-sm">
-                <span [ngClass]="(this.nbgamix /this.nbtotal*100 >= 50)?'fas fa-arrow-up text-success mr-2 ':'text-danger mr-2 fas fa-arrow-down'"> {{this.nbgamix /this.nbtotal*100}} %</span>
-                <span class="text-nowrap">Of Total Options</span>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-lg-6">
-          <div class="card card-stats mb-4 mb-xl-0">
-            <div class="card-body">
-              <div class="row">
-                <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">SIM</h5>
-                  <span [ngStyle]=" this.nbsim<2 ?{'color':'red','font-style':'italic'} :{'color':'green'}"  class="h2 font-weight-bold mb-0">{{this.nbsim}}</span>
-                </div>
-                <div class="col-auto">
-                  <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
-                    <i class="ni ni-mobile-button"></i>
-                  </div>
-                </div>
-              </div>
-              <p class="mt-3 mb-0 text-muted text-sm">
-                <span [ngClass]="(this.nbsim /this.nbtotal*100 >= 50)?'fas fa-arrow-up text-success mr-2 ':'text-danger mr-2 fas fa-arrow-down'"> {{this.nbsim /this.nbtotal*100}} %</span>
-                <span class="text-nowrap">Of Total Options</span>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-lg-6">
-          <div class="card card-stats mb-4 mb-xl-0">
-            <div class="card-body">
-              <div class="row">
-                <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">SE</h5>
-                  <span [ngStyle]=" this.nbse<2 ?{'color':'red','font-style':'italic'} :{'color':'green'}"  class="h2 font-weight-bold mb-0">{{this.nbse}}</span>
-                </div>
-                <div class="col-auto">
-                  <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
-                    <i class="ni ni-laptop"></i>
-                  </div>
-                </div>
-              </div>
-              <p class="mt-3 mb-0 text-muted text-sm">
-                <span  [ngClass]="(this.nbse /this.nbtotal*100 >= 50)?'fas fa-arrow-up text-success mr-2 ':'text-danger mr-2 fas fa-arrow-down'"
-                > {{this.nbse /this.nbtotal*100}} %</span>
-                <span class="text-nowrap">Of Total Options</span>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-lg-6">
-          <div class="card card-stats mb-4 mb-xl-0">
-            <div class="card-body">
-              <div class="row">
-                <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">NIDS</h5>
-                  <span [ngStyle]=" this.nbnids<2 ?{'color':'red','font-style':'italic'} :{'color':'green'}"  class="h2 font-weight-bold mb-0">{{this.nbnids}}</span>
-                </div>
-                <div class="col-auto">
-                  <div class="icon icon-shape bg-info text-white rounded-circle shadow">
-                    <i class="ni ni-lock-circle-open"></i>
-                  </div>
-                </div>
-              </div>
-              <p class="mt-3 mb-0 text-muted text-sm">
-                <span [ngClass]="(this.nbnids /this.nbtotal*100 >= 50)?'fas fa-arrow-up text-success mr-2 ':'text-danger mr-2 fas fa-arrow-down'"> {{this.nbnids /this.nbtotal*100}} %</span>
-                <span class="text-nowrap">Of Total Options</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-</div>
-
+<app-option-stats [nbtotal]="nbtotal" [nbgamix]="nbgamix" [nbnids]="nbnids" [nbse]="nbse" [nbsim]="nbsim"></app-option-stats>
 <!-- Page content -->
 <div class="container-fluid mt--7">
   <!-- Table -->
@@ -135,7 +41,7 @@
             currentPage:page,
             totalItems:totalRecords }" >
 
-              <tr *ngIf="searchT===''||std.nomE.toLowerCase().includes(searchT)||std.prenomE.toLowerCase().includes(searchT)||std.option.toLowerCase().includes(searchT)||std.deptt?.nomDepart.toLowerCase().includes(searchT)" >
+              <tr *ngIf="searchT===''||std.nomE.toLowerCase().includes(searchT)||std.prenomE.toLowerCase().includes(searchT)||std.option.toLowerCase().includes(searchT)||std.departement?.nomDepart.toLowerCase().includes(searchT)" >
                 <th scope="row">
                   <div class="media align-items-center">
                     <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
@@ -173,7 +79,7 @@
                 </td>
                 <td>
                   <div class="d-flex align-items-center">
-                    <span class="mr-2">{{std.deptt?.nomDepart}}</span>
+                    <span class="mr-2">{{std.departement?.nomDepart}}</span>
                     <div>
                       <div class="progress">
                         <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>

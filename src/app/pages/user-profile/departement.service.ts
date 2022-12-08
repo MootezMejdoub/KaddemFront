@@ -16,21 +16,18 @@ export class DepartementService {
   constructor(private http:HttpClient) { }
 
   public getDep(): Observable<Departement[]> {
-    return this.http.get<Departement[]>(`${this.apiServerUrl}/department/getAll`);
+    return this.http.get<Departement[]>(`${this.apiServerUrl}/Departements`);
   }
 
 public addDep(etudiant:Departement):Observable<Departement>{
-  return this.http.post<Departement>(`${this.apiServerUrl}/department/add`,etudiant);
+  return this.http.post<Departement>(`${this.apiServerUrl}/addDepartement`,etudiant);
 }
 
 
-public deleteDep(etudiantId:number):Observable<void>{
-  return this.http.delete<void>(`${this.apiServerUrl}/department/deleteDepartement/${etudiantId}`)
-}
 
 getDepById(idEtud:number):Observable<Departement>{
   console.log("get dep");
-  return this.http.get<Departement>(`${this.apiServerUrl}/department/getDepartement/${idEtud}`);
+  return this.http.get<Departement>(`${this.apiServerUrl}/Departement/${idEtud}`);
 }
 
 

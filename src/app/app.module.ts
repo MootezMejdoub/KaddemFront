@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 
 
 import { NgxPaginationModule } from 'ngx-pagination';
+import { OptionStatsComponent } from './pages/option-stats/option-stats.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ ReactiveFormsModule
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
+
 
 
   ],

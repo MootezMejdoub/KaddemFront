@@ -68,13 +68,13 @@ export class TablesComponent implements OnInit {
   }
   nbrOption(){
     for(let i=0; i<this.etudiants.length; i++){
-      if(this.etudiants[i].option==="gamix")
+      if(this.etudiants[i].option==="GAMIX")
         this.nbgamix++;
-      if(this.etudiants[i].option==="sim")
+      if(this.etudiants[i].option==="SIM")
         this.nbsim++;
-        if(this.etudiants[i].option==="se")
+        if(this.etudiants[i].option==="SE")
           this.nbse++;
-          if(this.etudiants[i].option==="nids")
+          if(this.etudiants[i].option==="NIDS")
             this.nbnids++;
     }
     this.nbtotal=this.nbgamix+this.nbsim+this.nbse+this.nbnids

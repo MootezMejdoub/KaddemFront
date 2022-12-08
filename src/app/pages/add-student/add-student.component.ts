@@ -32,7 +32,7 @@ export class AddStudentComponent implements OnInit {
      this.list.push(this.user);
      console.log(this.list);
      this.user=new User();*/
-    // this.etudiantService.addAndAsignEtudiantToEquipeAndContract(this.user,this.contrat.idContrat,this.equipe.idEquipe).subscribe();
+     this.etudiantService.addAndAsignEtudiantToEquipeAndContract(this.user,this.contrat.idContrat,this.equipe.idEquipe).subscribe();
 
      console.log(f.firstInfo.nomE);
      //this.notified.emit(this.user);

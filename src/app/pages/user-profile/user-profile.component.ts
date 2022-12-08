@@ -25,44 +25,79 @@ export class UserProfileComponent implements OnInit {
   nbse:number=0;
   nbnids:number=0;
   nbtotal:number=0;
+
+
+
+
   ngOnInit(): void {
-   // this.id=this.ac.snapshot.params['id'];
-   //this.ac.paramMap.subscribe(result=>{console.log(result); this.id=+result.get('id')});
-   //console.log(this.id);
-   let et:Etudiants;
+
+
 this.getDepartements();
 
     this.ac.paramMap.subscribe(params=>{
       this.id=+params.get('id');
+      console.log(this.id);
+
       if (this.id){
         //update
         this.us.getEtudiant(this.id).subscribe(
           res=>{
            this.etudiantedit=res,
-           this.createForm(this.etudiantedit)}
+
+          console.log(" in init ")
+          console.log(this.etudiantedit)
+
+          this.createForm(this.etudiantedit)}
+
+
            )
 
+      }})
 
-      }}
-      )}
-
-
+    }
 
 
-   // let myUser=new User();
 
-   createForm(etudiantedit){
-    this.myForm=new FormGroup({
-      autres:new FormGroup({
-      nomE:new FormControl(etudiantedit.nomE, [Validators.required, Validators.minLength(3)]),
-      option:new FormControl(etudiantedit.option, Validators.required),
-      prenomE:new FormControl(etudiantedit.prenomE,[Validators.required, Validators.minLength(3)]),
-     nomDepart:new FormControl(etudiantedit.deptt.nomDepart)
-    }),
 
-    })
-  }
 
+
+
+      createForm(etudiantedit){
+        if(this.etudiantedit.departement===null)
+        {
+          this.myForm=new FormGroup({
+            autres:new FormGroup({
+              nomE:new FormControl(etudiantedit.nomE,[Validators.required, Validators.minLength(3)]),
+            option:new FormControl(etudiantedit.option, Validators.required),
+
+            prenomE:new FormControl(etudiantedit.prenomE,[Validators.required, Validators.pattern("[a-zA-Z]*")]),
+            idDepart:new FormControl('',Validators.required),
+
+
+
+          }),
+
+          });console.log("in formdepnull")
+
+        }
+        else{
+          this.myForm=new FormGroup({
+            autres:new FormGroup({
+              nomE:new FormControl(etudiantedit.nomE,[Validators.required, Validators.minLength(3)]),
+            option:new FormControl(etudiantedit.option, Validators.required),
+
+            prenomE:new FormControl(etudiantedit.prenomE,[Validators.required, Validators.pattern("[a-zA-Z]*")]),
+              idDepart:new FormControl(etudiantedit.departement.idDepart),
+
+
+
+
+          }),
+
+          });
+        }
+
+      }
 
 
 
@@ -70,11 +105,9 @@ this.getDepartements();
     this.etudiantedit.nomE=  this.myForm.controls['autres'].get('nomE').value;
     this.etudiantedit.prenomE=  this.myForm.controls['autres'].get('prenomE').value;
     this.etudiantedit.option=  this.myForm.controls['autres'].get('option').value;
-    this.etudiantedit.deptt.nomDepart=  this.myForm.controls['autres'].get('nomDepart').value;
-    console.log(this.myForm.controls['autres'].get('nomDepart').value);
-
+   // this.etudiantedit.departement.idDepart= this.myForm.controls['autres'].get('idDepart').value;
   //this.list.push(this.user);
- // console.log(this.list);
+
  //this.user.idCustomer=100;
  //this.user.password="";
  //this.user.picture="";
@@ -101,7 +134,9 @@ this.getDepartements();
 
 
     this.us.updateEtudiants(this.etudiantedit,this.id).subscribe(ress=>{
-      this.us.assigneEtudToDepart( this.etudiantedit.idEtudiant,this.myForm.controls['autres'].get('nomDepart').value).subscribe(ress=>{
+      console.log("f west update etud");
+      console.log(this.myForm.controls['autres'].get('idDepart').value)
+      this.us.assigneEtudToDepart( this.etudiantedit.idEtudiant,this.myForm.controls['autres'].get('idDepart').value).subscribe(ress=>{
         this.us.getEmployees().subscribe();
       })
 
@@ -128,7 +163,7 @@ this.us.addEtudiants(this.etudiantedit).subscribe();
     this.usd.getDep().subscribe(
       (response: Departement[]) => {
         this.listDeparts = response;
-        console.log(this.listDeparts);
+        console.log(response);
 
       },
       (error: HttpErrorResponse) => {

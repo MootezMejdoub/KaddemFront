@@ -17,21 +17,13 @@ export class EquipeService {
   constructor(private http:HttpClient) { }
 
   public getEqui(): Observable<Equipe[]> {
-    return this.http.get<Equipe[]>(`${this.apiServerUrl}/equipe/getAll`);
+    return this.http.get<Equipe[]>(`${this.apiServerUrl}/getAllEquipes`);
   }
 
-public addEqui(etudiant:Equipe):Observable<Equipe>{
-  return this.http.post<Equipe>(`${this.apiServerUrl}/equipe/add`,etudiant);
-}
-
-
-public deleteEqui(etudiantId:number):Observable<void>{
-  return this.http.delete<void>(`${this.apiServerUrl}/equipe/deleteEquipe/${etudiantId}`)
-}
 
 getEquipeById(idEtud:number):Observable<Equipe>{
   console.log("get Equi");
-  return this.http.get<Equipe>(`${this.apiServerUrl}/equipe/getEquipe/${idEtud}`);
+  return this.http.get<Equipe>(`${this.apiServerUrl}/getEquipe/${idEtud}`);
 }
 
 

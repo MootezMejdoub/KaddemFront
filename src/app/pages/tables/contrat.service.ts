@@ -17,21 +17,14 @@ export class ContratService {
   constructor(private http:HttpClient) { }
 
   public getCont(): Observable<Contrat[]> {
-    return this.http.get<Contrat[]>(`${this.apiServerUrl}/contrat/getAll`);
+    return this.http.get<Contrat[]>(`${this.apiServerUrl}/Contrats`);
   }
 
-public addCont(etudiant:Contrat):Observable<Contrat>{
-  return this.http.post<Contrat>(`${this.apiServerUrl}/contrat/add`,etudiant);
-}
 
-
-public deleteCont(etudiantId:number):Observable<void>{
-  return this.http.delete<void>(`${this.apiServerUrl}/contrat/deleteContrat/${etudiantId}`)
-}
 
 getContratById(idEtud:number):Observable<Contrat>{
   console.log("get cont");
-  return this.http.get<Contrat>(`${this.apiServerUrl}/contrat/getContrat/${idEtud}`);
+  return this.http.get<Contrat>(`${this.apiServerUrl}/Contrat/${idEtud}`);
 }
 
 
